@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Bolha<T extends Comparable<T>> {
+public class SelectionSort<T extends Comparable<T>> {
 	public ArrayList<T> selectionSort (ArrayList<T> list) {
 		int i, j, minIndex;
 		T temp;

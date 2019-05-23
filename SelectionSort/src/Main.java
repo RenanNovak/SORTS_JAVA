@@ -39,12 +39,10 @@ public class Main {
 		return list;
 	}
 
-	public static void main(String[] args) {
-		ArrayList<String> lista = new ArrayList<>();		
+	public static void main(String[] args) {		
 		
 		ArrayList<Float>Leit = new ArrayList<>();
-		//selectionSort(lista);
-		//selectionSort(Leit);
+		ArrayList<String>LeitString = new ArrayList<>();
 		System.out.println("*****************************************************");
 		Scanner sc = new Scanner(System.in);
 		
@@ -63,8 +61,11 @@ public class Main {
 			System.out.println(aux);
 	        System.out.printf("  %s\n", linha);
 	        linha = lerArq.readLine(); // lê da segunda até a última linha
-			if(linha != null)
+			if((linha != null ) && (nome.equals("numeros_100000")))
 				Leit.add(Float.parseFloat(linha)); //= Integer.parseInt(linha);
+			if((linha != null ) && (nome.equals("palavras_100000")))
+				LeitString.add(linha); //= Integer.parseInt(linha);
+			
 			aux++;
 	      }
 		
@@ -73,23 +74,27 @@ public class Main {
 		}catch(IOException e) {
 	        System.err.printf("Erro na abertura do arquivo: %s.\n",
             e.getMessage());
-			
 		}
+		sc.close();
 		System.out.println("*****************************************************");
 		long inicio = System.currentTimeMillis();
-		//selectionSort(Leit);
-		Bolha<Float> b = new Bolha<Float>();
-		System.out.println(b.selectionSort(Leit));
+		
+		SelectionSort<Float> b = new SelectionSort<Float>(); //SelectionSort en tipo Float.
+		SelectionSort<String> bString = new SelectionSort<String>(); //SelectionSort en tipo String.
+		
+		
+		if(nome.equals("numeros_100000"))
+			System.out.println("Entrou Numeros!!");
+			System.out.println(b.selectionSort(Leit));
+		if(nome.equals("palavras_100000"))
+			System.out.println(bString.selectionSort(LeitString));
+		
+		
+		
 		long fim = System.currentTimeMillis();
 		
 		double CalculodoCap = fim - inicio;
 		System.out.println(CalculodoCap);
 		
-		//System.out.println(selectionSort(Leit));
-		//System.out.println(selectionSort(linha));
-		//System.out.println(lista);
-		//for(int i = 0; i<5;i++) {
-			//System.out.println(selectionSort(lista));
-		//}
 	}
 }
