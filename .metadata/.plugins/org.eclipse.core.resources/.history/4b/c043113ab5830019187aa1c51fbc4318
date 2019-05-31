@@ -1,0 +1,29 @@
+package Algoritmos;
+
+public class Tempo {
+	
+	private double inicio;
+	private double fim;
+	
+	public double mostrarTempo(double inicio, double fim) {
+		double CalculodoCap;
+		CalculodoCap = (fim - inicio);
+		return CalculodoCap;
+	}
+
+	public double getInicio() {
+		return inicio = System.currentTimeMillis();
+	}
+
+	public void setInicio(double inicio) {
+		this.inicio = inicio;
+	}
+
+	public double getFim() {
+		return fim = System.currentTimeMillis();
+	}
+
+	public void setFim(double fim) {
+		this.fim = fim;
+	}
+}
