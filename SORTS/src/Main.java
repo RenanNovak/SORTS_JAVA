@@ -2,21 +2,23 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
-
-import Algoritmos.Buble;
+import Algoritmos.Bubble;
 import Algoritmos.Insert;
 import Algoritmos.Merge;
 import Algoritmos.Quick;
 import Algoritmos.SelectionSort;
+import Object.LatLonObject;
 
 import java.util.ArrayList;
 
 public class Main {
 
 	public static ArrayList<String> Leitura;
-
+	
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
-
+		final LatLonObject[] vetor = new LatLonObject[100000];
+		String linha;
 		ArrayList<Float> Leit = new ArrayList<>();
 		ArrayList<String> LeitString = new ArrayList<>();
 		System.out.println("*****************************************************");
@@ -24,22 +26,27 @@ public class Main {
 
 		System.out.printf("Informe o nome de arquivo texto:\n");
 		String nome = entradaSC.nextLine();
-		String Path = "C:/Users/Miguel/Desktop/";
+		String Path = "C:/Users/Admin/Desktop/TESTES/";
 		int aux = 0;
 
 		try {
 			FileReader arq = new FileReader(Path + nome + ".txt");
 			BufferedReader lerArq = new BufferedReader(arq);
-
-			String linha = lerArq.readLine();
-			while (linha != null) {
-				System.out.println(aux);
-				System.out.printf("  %s\n", linha);
-				linha = lerArq.readLine(); // lê da segunda até a última linha
-				if ((linha != null) && (nome.equals("numeros_100000")))
+			int index = 0;
+			while ((linha = lerArq.readLine()) != null) {
+				//System.out.println(aux);
+				//System.out.printf("  %s\n", linha);
+				if ((linha != null) && (nome.equals("numeros_100000") || (nome.equals("numeros_1000000"))))
 					Leit.add(Float.parseFloat(linha)); // = Integer.parseInt(linha);
-				if ((linha != null) && (nome.equals("palavras_100000")))
+				if ((linha != null) && (nome.equals("palavras_100000") || (nome.equals("palavras_1000000"))))
 					LeitString.add(linha); // = Integer.parseInt(linha);
+				if ((linha != null) && (nome.equals("objetos_100000") || (nome.equals("objetos_1000000")))){
+					String[] separado = linha.split(" ");
+					Double lat = Double.parseDouble(separado[0]);
+					Double lon = Double.parseDouble(separado[1]);
+					vetor[index] = new LatLonObject(lat, lon);
+					index++;
+				}
 
 				aux++;
 			}
@@ -53,12 +60,14 @@ public class Main {
 		
 		
 		System.out.println("*****************************************************");
+		System.out.println("PROCESSAMENTO INICIADO");
+		System.out.println("*****************************************************");
 
 		SelectionSort<Float> SC = new SelectionSort<Float>(); // SelectionSort en tipo Float.
 		SelectionSort<String> SCString = new SelectionSort<String>(); // SelectionSort en tipo String.
 		
-		Buble<Float> BB = new Buble<Float>(); // BubbleSort en tipo Float.
-		Buble<String> BBString = new Buble<String>(); // BubbleSort en tipo String. 
+		Bubble<Float> BB = new Bubble<Float>(); // BubbleSort en tipo Float.
+		Bubble<String> BBString = new Bubble<String>(); // BubbleSort en tipo String. 
 		
 		Insert<Float> II = new Insert<Float>(); //InsertionSort en tipo Float.
 		Insert<String> IIString = new Insert<String>(); //InsertionSort en tipo String.
@@ -69,21 +78,19 @@ public class Main {
 		Quick<Float> QQ = new Quick<Float>();
 		Quick<String> QQString = new Quick<String>();
 		
-		if (nome.equals("numeros_100000"))
-			//System.out.println("*** Numeros 100 mil ***");
+		if (nome.equals("numeros_100000") || (nome.equals("numeros_1000000")))
 			//System.out.println(SC.selectionSort(Leit));
-			//System.out.println(BB.bubleSort(Leit))
+			//System.out.println(BB.bubleSort(Leit));
 			//System.out.println(II.insertSort(Leit));
 			//System.out.println(MM.mergesort(Leit));
 			System.out.println(QQ.quicksort(Leit, 0, Leit.size()-1));
 		
-		if (nome.equals("palavras_100000"))
-			//System.out.println("*** Palavras 100 mil ***");
-			//System.out.println(SCString.selectionSort(LeitString));
-			//System.out.println(BBString.bubleSort(LeitString));
-			//System.out.println(IIString.insertSort(LeitString));
-			//System.out.println(MMString.mergesort(LeitString));
+		/*if (nome.equals("palavras_100000") || (nome.equals("palavras_1000000")))
+			System.out.println(SCString.selectionSort(LeitString));
+			System.out.println(BBString.bubleSort(LeitString));
+			System.out.println(IIString.insertSort(LeitString));
+			System.out.println(MMString.mergesort(LeitString));
 			System.out.println(QQString.quicksort(LeitString, 0, LeitString.size()-1));
-
+*/
 	}
 }

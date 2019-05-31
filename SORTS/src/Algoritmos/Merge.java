@@ -1,13 +1,24 @@
 package Algoritmos;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 
 public class Merge <T extends Comparable<T>>{
 	
-	public ArrayList<T> mergesort(ArrayList<T> list){
-		double inicio = System.currentTimeMillis();
+	public String mergesort(ArrayList<T> list){
+		String acabou;
+		acabou = "Fim do processamento do MERGE";
+		
+		double inicio, fim;
+		Tempo tp = new Tempo();
+		inicio = tp.getInicio();
+		
 		if (list.size() <= 1) {
-			return list;
+			return acabou;
 		}else {
 		
 		int meio = list.size() / 2;
@@ -21,17 +32,26 @@ public class Merge <T extends Comparable<T>>{
         	right.add(list.get(i));
         }
         
-        double fim = System.currentTimeMillis();
-		double CalculodoCap = fim - inicio;
-		System.out.println("Tempo em MiliSegundos "+CalculodoCap+" ms");
-		
-		return merge(mergesort(left), mergesort(right));
+        fim = tp.getFim();
+        ArrayList<String> l = new ArrayList();
+		l.add("Millisegundos: "+tp.mostrarTempo(inicio, fim));
+		l.add("Segundos: "+tp.mostrarTempo(inicio, fim)/1000);
+		l.add("Minutos: "+tp.mostrarTempo(inicio, fim)/(1000*60));
+				try {
+			Files.write(Paths.get("MERGE"), l, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return acabou;
 	}
 }
 
-	private ArrayList<T> merge(ArrayList<T> left, ArrayList<T> right) {
+	private String merge(ArrayList<T> left, ArrayList<T> right) {
 		
 		ArrayList<T> ret = new ArrayList<T>();
+		String acabou;
+		acabou = "Fim do processamento do BUBBLE";
 		int a_idx = 0, b_idx = 0;
 		
 		while(a_idx+1 <= left.size() || b_idx+1 <= right.size()) { 
@@ -52,6 +72,6 @@ public class Merge <T extends Comparable<T>>{
 			}
 		}
 
-		return ret;
+		return acabou;
 	}
 }
