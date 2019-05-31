@@ -26,12 +26,12 @@ public class Insert<T extends Comparable<T>> {
 		}
 		
 		fim = tp.getFim();
-		ArrayList<String> l = new ArrayList();
-		l.add("Millisegundos: "+tp.mostrarTempo(inicio, fim));
-		l.add("Segundos: "+tp.mostrarTempo(inicio, fim)/1000);
-		l.add("Minutos: "+tp.mostrarTempo(inicio, fim)/(1000*60));
+		ArrayList<String> I = new ArrayList();
+		I.add("Millisegundos: "+tp.mostrarTempo(inicio, fim));
+		I.add("Segundos: "+tp.mostrarTempo(inicio, fim)/1000);
+		I.add("Minutos: "+tp.mostrarTempo(inicio, fim)/(1000*60));
 				try {
-			Files.write(Paths.get("INSERT"), l, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
+			Files.write(Paths.get("INSERT"), I, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

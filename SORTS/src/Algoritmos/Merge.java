@@ -33,12 +33,12 @@ public class Merge <T extends Comparable<T>>{
         }
         
         fim = tp.getFim();
-        ArrayList<String> l = new ArrayList();
-		l.add("Millisegundos: "+tp.mostrarTempo(inicio, fim));
-		l.add("Segundos: "+tp.mostrarTempo(inicio, fim)/1000);
-		l.add("Minutos: "+tp.mostrarTempo(inicio, fim)/(1000*60));
+        ArrayList<String> M = new ArrayList();
+		M.add("Millisegundos: "+tp.mostrarTempo(inicio, fim));
+		M.add("Segundos: "+tp.mostrarTempo(inicio, fim)/1000);
+		M.add("Minutos: "+tp.mostrarTempo(inicio, fim)/(1000*60));
 				try {
-			Files.write(Paths.get("MERGE"), l, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
+			Files.write(Paths.get("MERGE"), M, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

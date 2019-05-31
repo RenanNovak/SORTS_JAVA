@@ -27,19 +27,18 @@ public class Main {
 		System.out.printf("Informe o nome de arquivo texto:\n");
 		String nome = entradaSC.nextLine();
 		String Path = "C:/Users/Admin/Desktop/TESTES/";
-		int aux = 0;
+		
 
 		try {
 			FileReader arq = new FileReader(Path + nome + ".txt");
 			BufferedReader lerArq = new BufferedReader(arq);
 			int index = 0;
 			while ((linha = lerArq.readLine()) != null) {
-				//System.out.println(aux);
 				//System.out.printf("  %s\n", linha);
-				if ((linha != null) && (nome.equals("numeros_100000") || (nome.equals("numeros_1000000"))))
-					Leit.add(Float.parseFloat(linha)); // = Integer.parseInt(linha);
-				if ((linha != null) && (nome.equals("palavras_100000") || (nome.equals("palavras_1000000"))))
-					LeitString.add(linha); // = Integer.parseInt(linha);
+				if ((linha != null) && (nome.equals("numeros_100000") || (nome.equals("numeros_1000000") || (nome.equals("testen")))))
+					Leit.add(Float.parseFloat(linha));
+				if ((linha != null) && (nome.equals("palavras_100000") || (nome.equals("palavras_1000000") || (nome.equals("testep")))))
+					LeitString.add(linha);
 				if ((linha != null) && (nome.equals("objetos_100000") || (nome.equals("objetos_1000000")))){
 					String[] separado = linha.split(" ");
 					Double lat = Double.parseDouble(separado[0]);
@@ -48,7 +47,7 @@ public class Main {
 					index++;
 				}
 
-				aux++;
+				
 			}
 
 			arq.close();
@@ -63,14 +62,14 @@ public class Main {
 		System.out.println("PROCESSAMENTO INICIADO");
 		System.out.println("*****************************************************");
 
-		SelectionSort<Float> SC = new SelectionSort<Float>(); // SelectionSort en tipo Float.
-		SelectionSort<String> SCString = new SelectionSort<String>(); // SelectionSort en tipo String.
+		SelectionSort<Float> SC = new SelectionSort<Float>(); 
+		SelectionSort<String> SCString = new SelectionSort<String>(); 
 		
-		Bubble<Float> BB = new Bubble<Float>(); // BubbleSort en tipo Float.
-		Bubble<String> BBString = new Bubble<String>(); // BubbleSort en tipo String. 
+		Bubble<Float> BB = new Bubble<Float>(); 
+		Bubble<String> BBString = new Bubble<String>();  
 		
-		Insert<Float> II = new Insert<Float>(); //InsertionSort en tipo Float.
-		Insert<String> IIString = new Insert<String>(); //InsertionSort en tipo String.
+		Insert<Float> II = new Insert<Float>(); 
+		Insert<String> IIString = new Insert<String>(); 
 		
 		Merge<Float> MM = new Merge<Float>();
 		Merge<String> MMString = new Merge<String>();
@@ -78,19 +77,22 @@ public class Main {
 		Quick<Float> QQ = new Quick<Float>();
 		Quick<String> QQString = new Quick<String>();
 		
-		if (nome.equals("numeros_100000") || (nome.equals("numeros_1000000")))
-			//System.out.println(SC.selectionSort(Leit));
+		if (nome.equals("numeros_100000") 
+			|| (nome.equals("numeros_1000000")
+			|| (nome.equals("testen"))))
 			//System.out.println(BB.bubleSort(Leit));
 			//System.out.println(II.insertSort(Leit));
 			//System.out.println(MM.mergesort(Leit));
-			System.out.println(QQ.quicksort(Leit, 0, Leit.size()-1));
+			System.out.println(QQ.quicksort(Leit, 0, Leit.size()-1));  //Esta gerando numeros negativos
+			//System.out.println(SC.selectionSort(Leit));
 		
-		/*if (nome.equals("palavras_100000") || (nome.equals("palavras_1000000")))
-			System.out.println(SCString.selectionSort(LeitString));
+		/*if (nome.equals("palavras_100000") 
+		    || (nome.equals("palavras_1000000")
+		    || (nome.equals("testep"))))
 			System.out.println(BBString.bubleSort(LeitString));
 			System.out.println(IIString.insertSort(LeitString));
 			System.out.println(MMString.mergesort(LeitString));
-			System.out.println(QQString.quicksort(LeitString, 0, LeitString.size()-1));
-*/
+			System.out.println(QQString.quicksort(LeitString, 0, LeitString.size()-1)); //Esta gerando numeros negativos
+			System.out.println(SCString.selectionSort(LeitString)); */
 	}
 }

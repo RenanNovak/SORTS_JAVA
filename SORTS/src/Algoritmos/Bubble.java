@@ -26,12 +26,12 @@ public final class Bubble<T extends Comparable<T>> {
         }
 		
 		fim = tp.getFim();
-		ArrayList<String> l = new ArrayList();
-		l.add("Millisegundos: "+tp.mostrarTempo(inicio, fim));
-		l.add("Segundos: "+tp.mostrarTempo(inicio, fim)/1000);
-		l.add("Minutos: "+tp.mostrarTempo(inicio, fim)/(1000*60));
+		ArrayList<String> B = new ArrayList();
+		B.add("Millisegundos: "+tp.mostrarTempo(inicio, fim));
+		B.add("Segundos: "+tp.mostrarTempo(inicio, fim)/1000);
+		B.add("Minutos: "+tp.mostrarTempo(inicio, fim)/(1000*60));
 				try {
-			Files.write(Paths.get("BUBBLE"), l, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
+			Files.write(Paths.get("BUBBLE"), B, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

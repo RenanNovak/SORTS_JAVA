@@ -27,12 +27,12 @@ public final class SelectionSort<T extends Comparable<T>> {
 		}
 
 		fim = tp.getFim();
-		ArrayList<String> l = new ArrayList();
-		l.add("Millisegundos: "+tp.mostrarTempo(inicio, fim));
-		l.add("Segundos: "+tp.mostrarTempo(inicio, fim)/1000);
-		l.add("Minutos: "+tp.mostrarTempo(inicio, fim)/(1000*60));
+		ArrayList<String> S = new ArrayList();
+		S.add("Millisegundos: "+tp.mostrarTempo(inicio, fim));
+		S.add("Segundos: "+tp.mostrarTempo(inicio, fim)/1000);
+		S.add("Minutos: "+tp.mostrarTempo(inicio, fim)/(1000*60));
 				try {
-			Files.write(Paths.get("SELECTION"), l, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
+			Files.write(Paths.get("SELECTION"), S, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

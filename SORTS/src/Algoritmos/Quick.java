@@ -26,12 +26,12 @@ public class Quick <T extends Comparable<T>>{
 		
 		fimT = tp.getFim();
 		
-		ArrayList<String> l = new ArrayList();
-		l.add("Millisegundos: "+tp.mostrarTempo(inicio, fim));
-		l.add("Segundos: "+tp.mostrarTempo(inicio, fim)/1000);
-		l.add("Minutos: "+tp.mostrarTempo(inicio, fim)/(1000*60));
+		ArrayList<String> Q = new ArrayList();
+		Q.add("Millisegundos: "+tp.mostrarTempo(inicio, fim));
+		Q.add("Segundos: "+tp.mostrarTempo(inicio, fim)/1000);
+		Q.add("Minutos: "+tp.mostrarTempo(inicio, fim)/(1000*60));
 				try {
-			Files.write(Paths.get("QUICK"), l, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
+			Files.write(Paths.get("QUICK"), Q, StandardCharsets.UTF_8, StandardOpenOption.CREATE);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
