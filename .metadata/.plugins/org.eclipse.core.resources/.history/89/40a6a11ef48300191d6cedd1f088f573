@@ -77,22 +77,22 @@ public class Main {
 		Quick<Float> QQ = new Quick<Float>();
 		Quick<String> QQString = new Quick<String>();
 		
-		/*if (nome.equals("numeros_100000") 
+		if (nome.equals("numeros_100000") 
 			|| (nome.equals("numeros_1000000")
 			|| (nome.equals("testen"))))
-			//System.out.println(BB.bubleSort(Leit));
-			//System.out.println(II.insertSort(Leit));
-			//System.out.println(MM.mergesort(Leit));
-			//System.out.println(QQ.quicksort(Leit, 0, Leit.size()-1));  //Esta gerando numeros negativos
+			System.out.println(BB.bubleSort(Leit));
+			System.out.println(II.insertSort(Leit));
+			System.out.println(MM.mergesort(Leit));
+			//System.out.println(QQ.quicksort(Leit, 0, Leit.size()-1));  // gerando numeros negativos
 			System.out.println(SC.selectionSort(Leit));
-		*/
-		if (nome.equals("palavras_100000") 
+		
+		/*if (nome.equals("palavras_100000") 
 		    || (nome.equals("palavras_1000000")
 		    || (nome.equals("testep"))))
-			//System.out.println(BBString.bubleSort(LeitString));
-			//System.out.println(IIString.insertSort(LeitString));
-			//System.out.println(MMString.mergesort(LeitString));
-			//System.out.println(QQString.quicksort(LeitString, 0, LeitString.size()-1)); //Esta gerando numeros negativos
-			System.out.println(SCString.selectionSort(LeitString)); 
+			System.out.println(BBString.bubleSort(LeitString));
+			System.out.println(IIString.insertSort(LeitString));
+			System.out.println(MMString.mergesort(LeitString));
+			//System.out.println(QQString.quicksort(LeitString, 0, LeitString.size()-1)); // gerando numeros negativos
+			System.out.println(SCString.selectionSort(LeitString)); */
 	}
 }
